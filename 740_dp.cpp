@@ -53,7 +53,6 @@ int deleteAndEarn(vector<int> &nums)
 		}
 	}
 
-
 	return max((--memo.end())->second, (--(--memo.end()))->second);
 }
 
