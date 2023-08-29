@@ -1,1 +1,8 @@
 .vscode/
+Cargo*
+*.bin
+src/
+
+# Added by cargo
+
+/target
