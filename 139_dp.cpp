@@ -14,10 +14,11 @@ public:
 			{
 				continue;
 			}
-			for (auto word : wordDict)
+			for (const auto &word : wordDict)
 			{
-				string chop(s.data() + index,
-					    s.data() + min(index + word.length(), s.length()));
+				string const chop(s.data() + index,
+						  s.data() +
+							  min(index + word.length(), s.length()));
 				if (word == chop)
 				{
 					tab[index + word.length()] = true;
