@@ -1,7 +1,4 @@
-#include <iostream>
-
-#include <map>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 int fib(int n)
@@ -13,7 +10,8 @@ int fib(int n)
 		return ret;
 	}() };
 
-	if (memo.find(n) != memo.end()) {
+	if (memo.find(n) != memo.end())
+	{
 		return memo[n];
 	}
 

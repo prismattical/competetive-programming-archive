@@ -1,7 +1,4 @@
-#include <iostream>
-
-#include <map>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 int tribonacci(int n)
@@ -14,7 +11,8 @@ int tribonacci(int n)
 		return ret;
 	}() };
 
-	if (memo.find(n) != memo.end()) {
+	if (memo.find(n) != memo.end())
+	{
 		return memo[n];
 	}
 

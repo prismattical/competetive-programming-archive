@@ -1,17 +1,6 @@
-#include <iostream>
-#include <string>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
-/**
- * @brief 
- * 
- * @details Shamelessly copied from some tutorial video from YouTube
- * This problem is stupid. The "wrong" solution is average O(n^3) with worst O(n^3)
- * The "right" solution is average O(n^2) with worst O(n^3)
- * 
- * @param s 
- * @return string 
- */
+
 string longestPalindrome(string s)
 {
 	int start = 0;
