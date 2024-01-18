@@ -25,13 +25,3 @@ int rob(vector<int> &nums)
 	}
 	return max(memo[nums.size() - 1], memo[nums.size() - 2]);
 }
-
-int main()
-{
-	// vector<int> n = { 2, 7, 9, 3, 1 };
-	vector<int> n = { 1, 2, 3, 1 };
-
-	std::cout << rob(n);
-
-	return 0;
-}

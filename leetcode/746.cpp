@@ -12,14 +12,3 @@ int minCostClimbingStairs(vector<int> &cost)
 	}
 	return min(memo[cost.size() - 1], memo[cost.size() - 2]);
 }
-
-int main()
-{
-	// vector<int> n = { 10, 15, 20 };
-	// std::vector<int> n = { 1, 100, 1, 1, 1, 100, 1, 1, 100, 1 };
-	// std::vector<int> n = { 0, 1, 2, 2 };
-
-	std::cout << minCostClimbingStairs(n);
-
-	return 0;
-}

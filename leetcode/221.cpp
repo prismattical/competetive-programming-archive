@@ -36,19 +36,3 @@ int maximalSquare(vector<vector<char> > &matrix_old)
 	}
 	return max_so_far * max_so_far;
 }
-
-int main()
-{
-	vector<vector<vector<char> > > tcases;
-	tcases.push_back({ { '0' } });
-	tcases.push_back({ { '1', '1', '1' }, { '1', '1', '1' }, { '1', '1', '1' } });
-	tcases.push_back({ { '1', '1', '1' }, { '1', '1', '1' }, { '0', '1', '1' } });
-	tcases.push_back({ { '1', '1' }, { '1', '0' } });
-
-	for (auto &t : tcases)
-	{
-		cout << maximalSquare(t) << '\n';
-	}
-
-	return 0;
-}

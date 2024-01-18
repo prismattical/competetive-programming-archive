@@ -18,13 +18,3 @@ int fib(int n)
 	memo[n] = fib(n - 1) + fib(n - 2);
 	return memo[n];
 }
-
-int main()
-{
-	int n;
-	std::cin >> n;
-
-	std::cout << fib(n);
-
-	return 0;
-}

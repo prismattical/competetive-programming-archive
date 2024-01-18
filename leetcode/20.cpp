@@ -29,7 +29,3 @@ bool isValid(string s)
 	}
 	return true;
 }
-
-int main()
-{
-}

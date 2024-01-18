@@ -18,17 +18,3 @@ int minimumTotal(vector<vector<int> > &triangle)
 	}
 	return min_element(triangle.back().begin(), triangle.back().end()).operator*();
 }
-
-int main()
-{
-	vector<vector<vector<int> > > tcases;
-	tcases.push_back({ { 2 }, { 3, 4 }, { 6, 5, 7 }, { 4, 1, 8, 3 } });
-	tcases.push_back({ { -10 } });
-
-	for (int t = 0; t < tcases.size(); ++t)
-	{
-		cout << minimumTotal(tcases[t]) << '\n';
-	}
-
-	return 0;
-}

@@ -14,13 +14,3 @@ int uniquePaths(int m, int n)
 	}
 	return matrix[m][n];
 }
-
-int main()
-{
-	int m, n;
-	cin >> m >> n;
-
-	cout << uniquePaths(m, n) << '\n';
-
-	return 0;
-}

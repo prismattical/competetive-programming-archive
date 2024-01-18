@@ -31,7 +31,3 @@ int longestConsecutive(vector<int> &nums)
 	}
     return max_so_far;
 }
-
-int main()
-{
-}

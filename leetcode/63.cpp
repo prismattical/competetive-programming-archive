@@ -41,14 +41,3 @@ int uniquePathsWithObstacles(vector<vector<int> > &grid)
 	}
 	return grid.back().back();
 }
-
-int main()
-{
-	// vector<vector<int> > matrix = { { 0, 0, 0 }, { 0, 1, 0 }, { 0, 0, 0 } };
-	// vector<vector<int> > matrix = { { 0, 1 }, { 0, 0 } };
-	vector<vector<int> > matrix = { { 1 } };
-
-	cout << uniquePathsWithObstacles(matrix) << '\n';
-
-	return 0;
-}

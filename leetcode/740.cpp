@@ -59,13 +59,3 @@ int deleteAndEarn(vector<int> &nums)
 
 	return max((--memo.end())->second, (--(--memo.end()))->second);
 }
-
-int main()
-{
-	// vector<int> n = { 2, 7, 9, 3, 1 };
-	vector<int> n = { 1, 2, 3, 1 };
-
-	std::cout << deleteAndEarn(n);
-
-	return 0;
-}

@@ -36,11 +36,3 @@ string longestPalindrome(string s)
 	cout << start << ' ' << max_len << '\n';
 	return s.substr(start, max_len);
 }
-
-int main()
-{
-	string inp;
-	cin >> inp;
-	cout << longestPalindrome(inp) << '\n';
-	return 0;
-}
