@@ -3,62 +3,37 @@ using namespace std;
 
 int largestRectangleArea(vector<int> &heights)
 {
-	int ret = 0;
 	vector<pair<int, int> > monstack;
+	heights.push_back(0);
+	int ret = 0;
 	for (int i = 0; i < heights.size(); ++i)
 	{
 		while (true)
 		{
 			if (monstack.empty())
 			{
-				monstack.push_back({ heights[i], i });
+				monstack.push_back({ heights[i], 0 });
+				if (i != 0)
+				{
+					monstack.push_back({ heights[i], i });
+				}
 				break;
 			}
-
 			auto b = monstack.back();
-			if (heights[i] < b.first)
+			if (b.first > heights[i])
 			{
-				int temp;
-				if (monstack.size() == 1)
-				{
-					temp = b.first * (i);
-				} else
-				{
-					int x = b.second - monstack[monstack.size() - 2].second - 1;
-					temp = b.first * (i - b.second + x);
-				}
+				int temp = b.first * (i - b.second);
+				ret = max(ret, temp);
 				monstack.pop_back();
-				if (temp > ret)
-				{
-					ret = temp;
-				}
 				continue;
 			}
-
+			if (b.second + 1 != i)
+			{
+				monstack.push_back({ heights[i], b.second + 1 });
+			}
 			monstack.push_back({ heights[i], i });
 			break;
 		}
 	}
-	{
-		int temp = (monstack.back().second + 1) * monstack[0].first;
-		if (temp > ret)
-		{
-			ret = temp;
-		}
-		cout << monstack[0].first << ' ' << monstack[0].second << '\t';
-	}
-
-	for (int i = 1; i < monstack.size(); ++i)
-	{
-		int x = monstack[i].second - monstack[i - 1].second - 1;
-		int temp =
-			(monstack.back().second - monstack[i].second + 1 + x) * monstack[i].first;
-		if (temp > ret)
-		{
-			ret = temp;
-		}
-		cout << monstack[i].first << ' ' << monstack[i].second << '\t';
-	}
-	cout << '\n';
 	return ret;
 }

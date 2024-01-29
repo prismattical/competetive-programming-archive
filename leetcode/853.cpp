@@ -3,25 +3,31 @@ using namespace std;
 
 int carFleet(int target, vector<int> &position, vector<int> &speed)
 {
-	map<int, double> m;
-    
+	vector<pair<int, float> > v(speed.size());
 	for (int i = 0; i < speed.size(); ++i)
 	{
-		double t = static_cast<double>(target - position[i]) / speed[i];
-		m[position[i]] = t;
+		v[i] = { position[i], static_cast<float>(target - position[i]) / speed[i] };
 	}
-
-	int k = 0;
-	double max = -1;
-
-	for (auto it = m.rbegin(); it != m.rend(); ++it)
+	sort(v.begin(), v.end());
+	vector<float> monstack;
+	for (const auto p : v)
 	{
-		if (it->second > max)
+		while (true)
 		{
-			max = it->second;
-			++k;
+			if (monstack.empty())
+			{
+				monstack.push_back(p.second);
+				break;
+			}
+			const auto b = monstack.back();
+			if (p.second > b)
+			{
+				monstack.pop_back();
+				continue;
+			}
+			monstack.push_back(p.second);
+			break;
 		}
 	}
-
-	return k;
+	return (int)monstack.size();
 }
