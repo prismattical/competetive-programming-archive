@@ -31,38 +31,22 @@ ListNode *mergeTwoLists(ListNode *list1, ListNode *list2)
 	{
 		return list1;
 	}
-	ListNode *ret = list1;
+	ListNode dummy = ListNode();
 
-	ListNode *prev;
-	if (list1->val > list2->val)
+	ListNode *walker = &dummy;
+	while (list1 && list2)
 	{
-		ret = list2;
-		while (list2 != nullptr && list1->val > list2->val)
+		if (list1->val < list2->val)
 		{
-			prev = list2;
-			list2 = list2->next;
-		}
-		prev->next = list1;
-	}
-
-	while (list1->next != nullptr && list2 != nullptr)
-	{
-		if (list2->val < list1->next->val)
-		{
-			auto temp = list2->next;
-			list2->next = list1->next;
-			list1->next = list2;
-			list2 = temp;
+			walker->next = list1;
+			list1 = list1->next;
 		} else
 		{
-			list1 = list1->next;
+			walker->next = list2;
+			list2 = list2->next;
 		}
+		walker = walker->next;
 	}
-
-	if (list2 != nullptr)
-	{
-		list1->next = list2;
-	}
-
-	return ret;
+	walker->next = list1 ? list1 : list2;
+	return dummy.next;
 }

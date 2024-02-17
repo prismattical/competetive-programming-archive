@@ -13,15 +13,13 @@ int trap(vector<int> &height)
 		if (height[left] <= right_max)
 		{
 			++left;
-			const int curr = height[left];
-			left_max = left_max > curr ? left_max : curr;
-			count += left_max - curr;
+			left_max = left_max > height[left] ? left_max : height[left];
+			count += left_max - height[left];
 		} else if (height[right] < left_max)
 		{
 			--right;
-			const int curr = height[right];
-			right_max = right_max > curr ? right_max : curr;
-			count += right_max - curr;
+			right_max = right_max > height[right] ? right_max : height[right];
+			count += right_max - height[right];
 		}
 	}
 	return count;
